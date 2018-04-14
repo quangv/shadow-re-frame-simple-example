@@ -1,6 +1,9 @@
-# Shadow-cljs + Re-Frame (Simple Example)
+# Shadow-cljs + Re-Frame (Simple Example) + HTML5 Routes
 
-Combining https://github.com/shadow-cljs/quickstart-browser & https://github.com/Day8/re-frame/tree/master/examples/simple
+Combining
+- https://github.com/shadow-cljs/quickstart-browser 
+- https://github.com/Day8/re-frame/tree/master/examples/simple
+- `bidi`, `pushy` No-hashes bidirectional routing by J. Pablo Fernández - https://pupeno.com/2015/08/26/no-hashes-bidirectional-routing-in-re-frame-with-bidi-and-pushy/ (and views from re-frame template `lein new re-frame my-app +routes`)
 
 
 ## Required Software
