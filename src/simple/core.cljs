@@ -1,7 +1,9 @@
 (ns simple.core
   (:require [reagent.core :as reagent]
             [re-frame.core :as rf]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [simple.routes :as routes]
+            ))
 
 ;; -- Domino 1 Event Dispatch
 
@@ -42,8 +44,13 @@
  (fn [db _]
    (:time-color db)))
 
+(rf/reg-sub
+ ::active-panel
+ (fn [db _]
+   (:active-panel db)))
 
-;; -- Domino 5 - View FUnctions
+
+;; -- Domino 5 - View Functions
 
 (defn clock []
   [:div.example-clock
@@ -60,11 +67,39 @@
             :value @(rf/subscribe [:time-color])
             :on-change #(rf/dispatch [:time-color-change (-> % .-target .-value)])}]])
 
+;; home
+
+(defn home-panel []
+  [:div (str "This is the Home Page.")
+   [:div [:a {:href (routes/url-for :about)} "go to About Page"]]])
+ 
+;; about
+
+(defn about-panel []
+  [:div "This is the About Page."
+   [:div [:a {:href (routes/url-for :home)} "go to Home Page"]]])
+
+;; main
+
+(defn- panels [panel-name]
+  (case panel-name
+    :home-panel [home-panel]
+    :about-panel [about-panel]
+    [:div]))
+
+(defn show-panel [panel-name]
+  [panels panel-name])
+
+(defn main-panel []
+  (let [active-panel (rf/subscribe [::active-panel])]
+    [show-panel @active-panel]))
+
 (defn ui []
   [:div
    [:h1 "Hello world, it is now"]
    [clock]
-   [color-input]])
+   [color-input]
+   [main-panel]])
 
 (defn render []
   (reagent/render [ui]
@@ -72,5 +107,6 @@
 
 (defn ^:export init []
   (js/console.log "init")
+  (routes/app-routes)
   (rf/dispatch-sync [:initialize])
   (render))
