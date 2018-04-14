@@ -1,0 +1,30 @@
+#!/bin/bash
+
+function server() {
+    npx shadow-cljs server
+}
+
+function watch() {
+    npx shadow-cljs watch app
+}
+
+function repl() {
+    npx shadow-cljs cljs-repl app
+}
+
+function release() {
+    npx shadow-cljs release app
+}
+
+function clean() {
+    rm -rf dist/*
+}
+
+function build() {
+    clean
+    release
+    cp public/index.html dist/
+    cp -r public/css dist/
+}
+
+eval "$@"
