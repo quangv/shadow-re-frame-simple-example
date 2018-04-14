@@ -3,7 +3,24 @@
  ["src"]
 
  :dependencies
- []
+ [[reagent "0.7.0"]
+  [re-frame "0.10.5"]]
 
  :builds
- {}}
+ {:app {:target :browser
+        :output-dir "public/js"
+        :asset-path "/js"
+
+        :modules
+        {:main
+         {:entries [simple.core]}}
+
+        ;; start a development http server
+        :devtools
+        {:http-root "public"
+         :http-port 8020}
+
+        :release
+        {:output-dir "dist/js"}
+
+        }}}
