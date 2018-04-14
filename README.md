@@ -18,9 +18,9 @@ Please refer to the full [User Guide](https://shadow-cljs.github.io/docs/UsersGu
 ## Running the Example
 
 ```bash
-git clone https://github.com/shadow-cljs/quickstart-browser.git quickstart
-cd quickstart
-npm install
+git clone git@github.com:quangv/shadow-re-frame-simple-example.git
+cd shadow-re-frame-simple-example
+yarn  ; or npm install
 npx shadow-cljs server
 ```
 
@@ -60,7 +60,7 @@ The app is only a very basic skeleton with the most useful development tools con
 
         :modules
         {:main ;; <- becomes public/js/main.js
-         {:entries [starter.browser]}}
+         {:entries [simple.core]}}
 
         ;; start a development http server on http://localhost:8020
         :devtools
@@ -86,7 +86,7 @@ The last part is the actual `index.html` that is loaded when you open `http://lo
 <div id="app"></div>
 
 <script src="/js/main.js"></script>
-<script>starter.browser.init();</script>
+<script>simple.core.init();</script>
 </body>
 </html>
 ```
