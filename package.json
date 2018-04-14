@@ -1,0 +1,23 @@
+{
+  "name": "shadow-re-frame-simple-example",
+  "version": "0.0.1",
+  "description": "Shadow-cljs + re-frame example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quangv/shadow-re-frame-simple-example.git"
+  },
+  "keywords": [
+    "shadow-cljs",
+    "re-frame"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quangv/shadow-re-frame-simple-example/issues"
+  },
+  "homepage": "https://github.com/quangv/shadow-re-frame-simple-example#readme"
+}
